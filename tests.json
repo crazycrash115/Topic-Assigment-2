@@ -1,0 +1,183 @@
+[
+  {
+    "name": "small bugfix release",
+    "input_bullets": [
+      "Fixed crash when user deletes profile picture",
+      "Improved loading time for dashboard"
+    ],
+    "expected_patterns": [
+      "fixed crash",
+      "profile picture",
+      "dashboard",
+      "loading time"
+    ]
+  },
+  {
+    "name": "security and ui",
+    "input_bullets": [
+      "Patched XSS in comments section",
+      "Updated button colors on settings page"
+    ],
+    "expected_patterns": [
+      "xss",
+      "comments",
+      "settings page"
+    ]
+  },
+  {
+    "name": "auth and password reset",
+    "input_bullets": [
+      "Fixed bug where password reset emails were not sent",
+      "Improved login error messages"
+    ],
+    "expected_patterns": [
+      "password reset",
+      "login",
+      "error messages"
+    ]
+  },
+  {
+    "name": "new feature plus fix",
+    "input_bullets": [
+      "Added dark mode toggle in preferences",
+      "Fixed layout bug on mobile home screen"
+    ],
+    "expected_patterns": [
+      "dark mode",
+      "preferences",
+      "mobile"
+    ]
+  },
+  {
+    "name": "performance improvements",
+    "input_bullets": [
+      "Optimized database queries for user list",
+      "Reduced memory usage in reporting module"
+    ],
+    "expected_patterns": [
+      "performance",
+      "database",
+      "memory",
+      "reporting"
+    ]
+  },
+  {
+    "name": "notifications cleanup",
+    "input_bullets": [
+      "Fixed duplicate push notifications on Android",
+      "Improved email notification formatting"
+    ],
+    "expected_patterns": [
+      "notifications",
+      "android",
+      "email"
+    ]
+  },
+  {
+    "name": "api and docs",
+    "input_bullets": [
+      "Added new /v2/users API endpoint",
+      "Updated API docs to include rate limits"
+    ],
+    "expected_patterns": [
+      "api",
+      "/v2/users",
+      "docs",
+      "rate limits"
+    ]
+  },
+  {
+    "name": "search improvements",
+    "input_bullets": [
+      "Improved relevance of search results",
+      "Fixed bug where filters were not applied correctly"
+    ],
+    "expected_patterns": [
+      "search",
+      "filters"
+    ]
+  },
+  {
+    "name": "billing and invoices",
+    "input_bullets": [
+      "Fixed issue with pro plan invoices not generating",
+      "Added support for downloading invoice PDFs"
+    ],
+    "expected_patterns": [
+      "invoices",
+      "pdf"
+    ]
+  },
+  {
+    "name": "accessibility tweaks",
+    "input_bullets": [
+      "Improved keyboard navigation on settings page",
+      "Increased contrast of text in sidebar"
+    ],
+    "expected_patterns": [
+      "accessibility",
+      "keyboard",
+      "contrast"
+    ]
+  },
+  {
+    "name": "onboarding improvements",
+    "input_bullets": [
+      "Added progress indicator to onboarding wizard",
+      "Fixed typo in welcome email"
+    ],
+    "expected_patterns": [
+      "onboarding",
+      "progress indicator",
+      "welcome email"
+    ]
+  },
+  {
+    "name": "data export",
+    "input_bullets": [
+      "Added CSV export for user activity",
+      "Fixed encoding issues in existing export"
+    ],
+    "expected_patterns": [
+      "csv",
+      "export",
+      "encoding"
+    ]
+  },
+  {
+    "name": "multi language",
+    "input_bullets": [
+      "Added Spanish translations for dashboard",
+      "Fixed missing translation keys in profile page"
+    ],
+    "expected_patterns": [
+      "spanish",
+      "translations",
+      "profile"
+    ]
+  },
+  {
+    "name": "team management",
+    "input_bullets": [
+      "Added ability to assign roles to team members",
+      "Fixed bug where removed users could still log in"
+    ],
+    "expected_patterns": [
+      "roles",
+      "team",
+      "removed users"
+    ]
+  },
+  {
+    "name": "analytics charts",
+    "input_bullets": [
+      "Improved load time of analytics charts",
+      "Fixed incorrect label on revenue chart"
+    ],
+    "expected_patterns": [
+      "analytics",
+      "charts",
+      "revenue"
+    ]
+  }
+]
