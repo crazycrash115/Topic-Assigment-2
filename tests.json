@@ -1,183 +1,175 @@
 [
   {
-    "name": "small bugfix release",
+    "name": "basic_new_feature",
     "input_bullets": [
-      "Fixed crash when user deletes profile picture",
-      "Improved loading time for dashboard"
+      "Added new farming area",
+      "Fixed weapon duplication bug"
     ],
     "expected_patterns": [
-      "fixed crash",
-      "profile picture",
-      "dashboard",
-      "loading time"
+      "gameplay",
+      "bug",
+      "farming area",
+      "duplication"
     ]
   },
   {
-    "name": "security and ui",
+    "name": "ui_update",
     "input_bullets": [
-      "Patched XSS in comments section",
-      "Updated button colors on settings page"
+      "Updated inventory UI",
+      "Fixed crafting tooltip overlap"
     ],
     "expected_patterns": [
-      "xss",
-      "comments",
-      "settings page"
+      "inventory",
+      "ui",
+      "bug fixes"
     ]
   },
   {
-    "name": "auth and password reset",
+    "name": "stealth_rework",
     "input_bullets": [
-      "Fixed bug where password reset emails were not sent",
-      "Improved login error messages"
+      "Reworked stealth detection",
+      "Reduced heavy armor noise penalty",
+      "Fixed enemies seeing through walls"
     ],
     "expected_patterns": [
-      "password reset",
-      "login",
-      "error messages"
+      "stealth",
+      "gameplay changes",
+      "bug fixes"
     ]
   },
   {
-    "name": "new feature plus fix",
+    "name": "movement_patch",
     "input_bullets": [
-      "Added dark mode toggle in preferences",
-      "Fixed layout bug on mobile home screen"
+      "Improved climbing animation",
+      "Fixed falling damage calculation"
     ],
     "expected_patterns": [
-      "dark mode",
-      "preferences",
-      "mobile"
+      "climbing",
+      "falling damage"
     ]
   },
   {
-    "name": "performance improvements",
+    "name": "boss_update",
     "input_bullets": [
-      "Optimized database queries for user list",
-      "Reduced memory usage in reporting module"
+      "Added new boss in the Shadow Keep",
+      "Fixed boss arena softlock"
     ],
     "expected_patterns": [
-      "performance",
-      "database",
-      "memory",
-      "reporting"
+      "boss",
+      "shadow keep"
     ]
   },
   {
-    "name": "notifications cleanup",
+    "name": "balance_patch",
     "input_bullets": [
-      "Fixed duplicate push notifications on Android",
-      "Improved email notification formatting"
+      "Nerfed fireball damage",
+      "Buffed ice lance range"
     ],
     "expected_patterns": [
-      "notifications",
-      "android",
-      "email"
+      "balances",
+      "fireball",
+      "ice lance"
     ]
   },
   {
-    "name": "api and docs",
+    "name": "minor_sound_fix",
     "input_bullets": [
-      "Added new /v2/users API endpoint",
-      "Updated API docs to include rate limits"
+      "Fixed missing audio cue when opening chests",
+      "Adjusted wind ambience volume"
     ],
     "expected_patterns": [
-      "api",
-      "/v2/users",
-      "docs",
-      "rate limits"
+      "audio",
+      "bug"
     ]
   },
   {
-    "name": "search improvements",
+    "name": "map_patch",
     "input_bullets": [
-      "Improved relevance of search results",
-      "Fixed bug where filters were not applied correctly"
+      "Updated minimap icons",
+      "Fixed map boundaries in northern ridge"
     ],
     "expected_patterns": [
-      "search",
-      "filters"
+      "map",
+      "minimap"
     ]
   },
   {
-    "name": "billing and invoices",
+    "name": "performance_patch",
     "input_bullets": [
-      "Fixed issue with pro plan invoices not generating",
-      "Added support for downloading invoice PDFs"
+      "Improved FPS stability in forest zone",
+      "Fixed memory leak during long sessions"
     ],
     "expected_patterns": [
-      "invoices",
-      "pdf"
+      "fps",
+      "memory leak"
     ]
   },
   {
-    "name": "accessibility tweaks",
+    "name": "crafting_update",
     "input_bullets": [
-      "Improved keyboard navigation on settings page",
-      "Increased contrast of text in sidebar"
+      "Reworked crafting UI",
+      "Fixed incorrect item recipes"
     ],
     "expected_patterns": [
-      "accessibility",
-      "keyboard",
-      "contrast"
+      "crafting",
+      "recipes"
     ]
   },
   {
-    "name": "onboarding improvements",
+    "name": "tutorial_patch",
     "input_bullets": [
-      "Added progress indicator to onboarding wizard",
-      "Fixed typo in welcome email"
+      "Improved tutorial clarity",
+      "Fixed camera clipping during intro"
     ],
     "expected_patterns": [
-      "onboarding",
-      "progress indicator",
-      "welcome email"
+      "tutorial",
+      "camera"
     ]
   },
   {
-    "name": "data export",
+    "name": "ai_patch",
     "input_bullets": [
-      "Added CSV export for user activity",
-      "Fixed encoding issues in existing export"
+      "Improved enemy AI pathfinding",
+      "Fixed idle state freeze"
     ],
     "expected_patterns": [
-      "csv",
-      "export",
-      "encoding"
+      "ai",
+      "pathfinding"
     ]
   },
   {
-    "name": "multi language",
+    "name": "shop_update",
     "input_bullets": [
-      "Added Spanish translations for dashboard",
-      "Fixed missing translation keys in profile page"
+      "Updated shop inventory",
+      "Fixed price mismatch bug"
     ],
     "expected_patterns": [
-      "spanish",
-      "translations",
-      "profile"
+      "shop",
+      "inventory",
+      "bug"
     ]
   },
   {
-    "name": "team management",
+    "name": "combat_patch",
     "input_bullets": [
-      "Added ability to assign roles to team members",
-      "Fixed bug where removed users could still log in"
+      "Improved dodge roll responsiveness",
+      "Fixed hitbox desync on heavy attacks"
     ],
     "expected_patterns": [
-      "roles",
-      "team",
-      "removed users"
+      "dodge roll",
+      "hitbox"
     ]
   },
   {
-    "name": "analytics charts",
+    "name": "environment_patch",
     "input_bullets": [
-      "Improved load time of analytics charts",
-      "Fixed incorrect label on revenue chart"
+      "Added new environmental fog effects",
+      "Fixed floating rocks in desert area"
     ],
     "expected_patterns": [
-      "analytics",
-      "charts",
-      "revenue"
+      "fog",
+      "desert",
+      "bug"
     ]
   }
 ]

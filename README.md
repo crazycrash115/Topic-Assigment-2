@@ -2,13 +2,13 @@
 
 Small CLI app that turns raw bullet point change lists into clean, professional patch notes using a **local Gemma model via Ollama**.
 
-It also uses an external API to fetch the current date and generate a version string, implements simple safety checks, logs telemetry, and comes with an offline evaluation script.
+It also uses an external API to fetch the current date, implements simple safety checks, logs telemetry, and comes with an offline evaluation script.
 
 ## Stack
 
 - Model: `gemma2:9b` via [Ollama](https://ollama.com/)
 - App: Python CLI
-- Tool use: `https://worldtimeapi.org` for current time and version tag
+- Tool use: `https://worldtimeapi.org` for date
 - Data: plain text bullets from the user
 
 ## Features
@@ -18,7 +18,7 @@ It also uses an external API to fetch the current date and generate a version st
   - Optional short description for the release.
   - App calls the local LLM to generate formatted patch notes.
 - Enhancement:
-  - Tool use: calls `https://worldtimeapi.org` to get current time and derive a version like `v2025.11.27`.
+  - Tool use: calls `https://worldtimeapi.org` to get current time to put into patch
 - Safety and robustness:
   - System prompt with explicit do / dont rules (inside `llm_client.py`).
   - Input length guard (`MAX_INPUT_CHARS`, default 4000).
@@ -27,9 +27,6 @@ It also uses an external API to fetch the current date and generate a version st
 - Telemetry:
   - Logs JSON lines per request to `logs/requests.log` including timestamp, pathway (`tool`), and latency.
   - Token counts are `null` because local models do not expose them.
-- Offline eval:
-  - `tests.json` with 15 test cases.
-  - `eval_runner.py` runs the tests and prints pass rate.
 - Repro:
   - `README.md`, `requirements.txt`, `.env.example`, and seed style guide.
   - One-command run for app and eval.

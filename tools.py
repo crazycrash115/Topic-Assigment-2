@@ -3,34 +3,25 @@ from datetime import datetime
 
 def fetch_release_metadata() -> dict:
     """
-    Calls an external API (worldtimeapi) to get current date/time.
-    Generates a version string based on the date.
-    This satisfies the 'tool use' requirement.
+    Fetches current datetime from worldtimeapi.
+
+    Version and release_type are inferred later from the actual changes,
+    not from this function.
     """
     try:
         resp = requests.get(
             "https://worldtimeapi.org/api/timezone/America/Toronto",
-            timeout=5
+            timeout=5,
         )
         resp.raise_for_status()
         data = resp.json()
         iso = data.get("datetime")
-        if iso is None:
+        if not iso:
             raise ValueError("No datetime in response")
-
-        # worldtimeapi uses ISO with timezone; normalize for datetime
-        dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
-        version = dt.strftime("v%Y.%m.%d")
-        return {
-            "release_date": iso,
-            "version": version,
-        }
     except Exception:
-        # Fallback if API fails
-        now = datetime.utcnow()
-        iso = now.isoformat() + "Z"
-        version = now.strftime("v%Y.%m.%d-fallback")
-        return {
-            "release_date": iso,
-            "version": version,
-        }
+        # Fallback to local UTC time if the API fails
+        iso = datetime.utcnow().isoformat() + "Z"
+
+    return {
+        "release_date": iso,
+    }

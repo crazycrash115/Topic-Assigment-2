@@ -1,58 +1,70 @@
 import json
 import os
-from typing import List, Dict
+import time
 
+from config import BASE_DIR
 from patch_notes import generate_patch_notes
+from tools import fetch_release_metadata
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-TESTS_PATH = os.path.join(BASE_DIR, "tests.json")
 
-def load_tests() -> List[Dict]:
-    with open(TESTS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+def load_style_guide() -> str | None:
+    """
+    Same behavior as app.load_style_guide, but duplicated here
+    so eval_runner does not depend on app.py.
+    """
+    path = os.path.join(BASE_DIR, "seed", "style_guide.md")
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    except Exception:
+        return None
 
-def run_eval():
-    tests = load_tests()
+
+def run_eval() -> None:
+    with open("tests.json", "r", encoding="utf-8") as f:
+        tests = json.load(f)
+
     total = len(tests)
     passed = 0
 
-    # Use fixed metadata for eval to avoid hitting external API
-    metadata = {
-        "release_date": "2025-01-01T00:00:00Z",
-        "version": "vTEST",
-    }
+    # We can reuse the same metadata / style guide for all tests
+    metadata = fetch_release_metadata()
+    style_guide = load_style_guide()
 
-    for test in tests:
-        name = test.get("name", "unnamed")
-        bullets = test.get("input_bullets", [])
-        expected_patterns = test.get("expected_patterns", [])
+    for idx, test in enumerate(tests, 1):
+        print(f"Running test {idx}/{total}: {test['name']}")
 
-        print(f"Running test: {name}")
-        output, _ = generate_patch_notes(
+        bullets = test["input_bullets"]
+        expected = [p.lower() for p in test.get("expected_patterns", [])]
+
+        start = time.time()
+        text, token_stats = generate_patch_notes(
             bullets=bullets,
             metadata=metadata,
             short_description=None,
-            style_guide=None,
+            style_guide=style_guide,
         )
+        latency = time.time() - start
 
-        lower_output = output.lower()
-        ok = all(pattern.lower() in lower_output for pattern in expected_patterns)
+        out_lower = text.lower()
+        ok = all(p in out_lower for p in expected)
 
         if ok:
             passed += 1
-            print("  -> PASS\n")
+            print(f"  PASS ({latency:.2f}s)")
         else:
-            print("  -> FAIL")
-            print("     Output:")
-            print(output)
-            print("     Expected patterns:", expected_patterns)
-            print()
+            print(f"  FAIL ({latency:.2f}s)")
+            print("    Output was:")
+            print(text)
+            print("    Expected patterns:", expected)
 
-    if total > 0:
-        rate = (passed / total) * 100
-    else:
-        rate = 0.0
-    print(f"Summary: {passed}/{total} tests passed ({rate:.1f}%).")
+        print()
+
+    rate = (passed / total) * 100
+    print(f"RESULT: {passed}/{total} tests passed ({rate:.1f}%).")
+
 
 if __name__ == "__main__":
     run_eval()
